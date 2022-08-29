@@ -1,19 +1,20 @@
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int main()
+/**
+ * main - execve example
+ *
+ * Return: Always 0.
+ */
+int main(void)
 {
-	char *argv[] = {"/root/C_training/Coding_alx/ls", "-l", NULL};
-	
-	int val = execve(argv[0], argv, NULL);
+    char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
 
-	if (val == -1)
-	{
-		perror("Error");
-	}
-
-	printf("Done with execve\n");
-
-
-	return (0);
+    printf("Before execve\n");
+    if (execve(argv[0], argv, NULL) == -1)
+    {
+        perror("Error:");
+    }
+    printf("After execve\n");
+    return (0);
 }
