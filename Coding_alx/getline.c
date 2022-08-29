@@ -1,13 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-	ssize_t getline(char **lineptr, size_t *n, FILE *stream);
-	
-	char s;
+	size_t b = 0;
+	char *buff = NULL;
 
 	printf("$ ");
-	scanf("%s", &s);
+	getline(&buff, &b, stdin);
+
+	printf("%s", buff);
 	
+	free(buff);	
 	return (0);
 }
