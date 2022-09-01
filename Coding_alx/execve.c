@@ -10,10 +10,9 @@ int main(void)
 {
 	char path[] = "/tmp/";
 
-	char *envp[] = {NULL};
     	char *argv[] = {"/usr/bin/ls", "-l", NULL};
 
-	if (execve(argv[0], argv, envp) == -1)
+	if (execve(argv[0], argv, NULL) == -1)
 	{
 						
 		perror("Error:");
