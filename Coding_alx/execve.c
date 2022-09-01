@@ -8,13 +8,17 @@
  */
 int main(void)
 {
-    char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
+	char path[] = "/tmp/";
 
-    printf("Before execve\n");
-    if (execve(argv[0], argv, NULL) == -1)
-    {
-        perror("Error:");
-    }
-    printf("After execve\n");
-    return (0);
+	char *envp[] = {NULL};
+    	char *argv[] = {"/usr/bin/ls", "-l", NULL};
+
+	if (execve(argv[0], argv, envp) == -1)
+	{
+						
+		perror("Error:");
+
+	}
+	printf("After execve\n");
+	return (0);
 }
